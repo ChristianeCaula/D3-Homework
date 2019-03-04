@@ -67,10 +67,10 @@ function updateToolTip(chosenxAxis, circlesGroup) {
 
     if (chosenxAxis == "obesity") {
       var xlabel = "Obesity: ";
-      var ylabel = "Income: "
+      var ylabel = "Average Income ($): "
     } else {
       var xlabel = "Smoke: "
-      var ylabel = "Income: "
+      var ylabel = "Average Income ($): "
     };
   
     let toolTip = d3.tip()
@@ -134,8 +134,8 @@ d3.csv("data.csv", function (error, data) {
       .attr("cx", d => xLinearScale(d[chosenxAxis]))
       .attr("cy", d => yLinearScale(d[chosenyAxis]))
       .attr("r", 9)
-      .attr("fill", "green")
-      .attr("opacity", "0.8")
+      .attr("fill", "red")
+      .attr("opacity", "0.6")
       .attr("class", "stateText");
     
     var circlesText = chartGroup.selectAll("stateText")
@@ -160,14 +160,14 @@ d3.csv("data.csv", function (error, data) {
     let labelsGroup = chartGroup.append("g")
       .attr("transform", `translate(${width/2}, ${height + 20})`)
   
-    let fertilityBelowLabel = labelsGroup.append("text")
+    let obesity = labelsGroup.append("text")
       .attr("x", 0)
       .attr("y", 20)
       .attr("value", "obesity") //value to grab for event listener
       .classed("active", true)
       .text("Obesity");
   
-    let fertilityAboveLabel = labelsGroup.append("text")
+    let smoke = labelsGroup.append("text")
       .attr("x", 0)
       .attr("y", 40)
       .attr("value", "smoke") //value to grab for event listener
