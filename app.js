@@ -101,7 +101,7 @@ d3.csv("data.csv", function (error, data) {
     data.forEach(function (file) {
       file.income = +file.income;
       file.obesity = +file.obesity;
-      file.smoke = +file.smoke;
+      file.smokes = +file.smokes;
     });
   
     // xLinearScale function above csv import
@@ -170,7 +170,7 @@ d3.csv("data.csv", function (error, data) {
     var smoke = labelsGroup.append("text")
       .attr("x", 0)
       .attr("y", 40)
-      .attr("value", "smoke") //value to grab for event listener
+      .attr("value", "smokes") //value to grab for event listener
       .classed("inactive", true)
       .text("Smoke(%)");
   
@@ -227,7 +227,7 @@ d3.csv("data.csv", function (error, data) {
             .attr("fill", "white");
   
           // changes classes to change bold text
-          if (chosenxAxis === "smoke") {
+          if (chosenxAxis === "smokes") {
             smoke
               .classed("active", true)
               .classed("inactive", false)
